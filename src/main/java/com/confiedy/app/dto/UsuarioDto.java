@@ -15,7 +15,10 @@ public class UsuarioDto implements Serializable {
     private String username;
     @Size(max = 45)
     private String password;
-
+    @Size(max = 145)
+    private String nombreAlumno;
+    @Size(max = 145)
+    private String apellidoAlumno;
     public UsuarioDto() {
     }
 
@@ -70,5 +73,21 @@ public class UsuarioDto implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNombreAlumno() {
+        return nombreAlumno;
+    }
+
+    public void setNombreAlumno(String nombreAlumno) {
+        this.nombreAlumno = nombreAlumno;
+    }
+
+    public String getApellidoAlumno() {
+        return apellidoAlumno;
+    }
+
+    public void setApellidoAlumno(String apellidoAlumno) {
+        this.apellidoAlumno = apellidoAlumno;
     }
 }

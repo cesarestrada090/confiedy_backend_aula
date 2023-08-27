@@ -23,6 +23,10 @@ public class Usuario {
     @Column(name = "tipo", length = 45)
     private String tipo;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name =  "alumno_id")
+    private Alumno alumno;
+
     public Integer getId() {
         return id;
     }
@@ -53,5 +57,13 @@ public class Usuario {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Alumno getAlumno() {
+        return alumno;
+    }
+
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
 }
