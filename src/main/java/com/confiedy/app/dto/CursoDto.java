@@ -4,12 +4,11 @@ import com.confiedy.app.entities.Usuario;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * DTO for {@link Usuario}
  */
-public class Curso implements Serializable {
+public class CursoDto implements Serializable {
     private Integer id;
     @Size(max = 45)
     private String codigoCurso;
@@ -21,7 +20,7 @@ public class Curso implements Serializable {
     private String nombreDocente;
     @Size(max = 145)
     private String apellidosDocente;
-    public Curso() {
+    public CursoDto() {
     }
 
     public Integer getId() {
