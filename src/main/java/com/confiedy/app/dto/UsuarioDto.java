@@ -19,6 +19,8 @@ public class UsuarioDto implements Serializable {
     private String nombreAlumno;
     @Size(max = 145)
     private String apellidoAlumno;
+
+    private Integer alumnoId;
     public UsuarioDto() {
     }
 
@@ -89,5 +91,13 @@ public class UsuarioDto implements Serializable {
 
     public void setApellidoAlumno(String apellidoAlumno) {
         this.apellidoAlumno = apellidoAlumno;
+    }
+
+    public Integer getAlumnoId() {
+        return alumnoId;
+    }
+
+    public void setAlumnoId(Integer alumnoId) {
+        this.alumnoId = alumnoId;
     }
 }

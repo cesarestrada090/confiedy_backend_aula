@@ -18,7 +18,7 @@ public class CursoController {
         this.cursoService = cursoService;
     }
 
-    @GetMapping(value="cursos")
+    @GetMapping(value="cursosPorAlumnoId")
     public ResponseEntity<List<CursoDto>> getAll(
             @RequestParam(name = "alumnoId") int alumnoId){
         List<CursoDto> cursoDtos;

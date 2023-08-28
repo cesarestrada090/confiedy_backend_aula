@@ -2,6 +2,8 @@ package com.confiedy.app.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "alumno_evaluacion_curso")
 public class AlumnoEvaluacionCurso {
@@ -17,6 +19,10 @@ public class AlumnoEvaluacionCurso {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "evaluacion_curso_id", nullable = false)
     private EvaluacionCurso evaluacionCurso;
+
+    @Column(name = "fecha_matricula")
+    private LocalDate fechaMatricula;
+
 
     @Column(name = "activo")
     Integer activo;
@@ -54,5 +60,13 @@ public class AlumnoEvaluacionCurso {
 
     public void setActivo(Integer activo) {
         this.activo = activo;
+    }
+
+    public LocalDate getFechaMatricula() {
+        return fechaMatricula;
+    }
+
+    public void setFechaMatricula(LocalDate fechaMatricula) {
+        this.fechaMatricula = fechaMatricula;
     }
 }
