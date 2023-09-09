@@ -10,5 +10,6 @@ public interface UsuarioService {
     UsuarioDto update(Integer id, UsuarioDto dto);
 
     UsuarioDto getUserByUserAndPassword(UsuarioDto usuarioDto);
+    UsuarioDto getUserById(Integer id);
     ResultPageWrapper<UsuarioDto> getAll(Pageable paging);
 }

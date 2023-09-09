@@ -3,6 +3,8 @@ package com.confiedy.app.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "alumno")
 public class Alumno {
@@ -23,9 +25,8 @@ public class Alumno {
     @Column(name = "carrera", length = 45)
     private String carrera;
 
-    @Size(max = 145)
-    @Column(name = "fecha_nacimiento", length = 45)
-    private String fechaNacimiento;
+    @Column(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
 
     public Integer getId() {
         return id;
@@ -59,11 +60,11 @@ public class Alumno {
         this.carrera = carrera;
     }
 
-    public String getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 }

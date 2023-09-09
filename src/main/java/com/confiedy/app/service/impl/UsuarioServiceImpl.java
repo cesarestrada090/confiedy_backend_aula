@@ -34,8 +34,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     public UsuarioDto update(Integer id, UsuarioDto usuarioDto){
         if(usuarioRepository.findById(id).isPresent()){
             Usuario existingEntity = usuarioRepository.findById(id).get();
-            existingEntity.setUsername(usuarioDto.getUsername());
             existingEntity.setPassword(usuarioDto.getPassword());
+            existingEntity.getAlumno().setNombre(usuarioDto.getNombreAlumno());
+            existingEntity.getAlumno().setApellido(usuarioDto.getApellidoAlumno());
+            existingEntity.getAlumno().setCarrera(usuarioDto.getCarrera());
+            existingEntity.getAlumno().setFechaNacimiento(usuarioDto.getFechaNacimiento());
             usuarioRepository.save(existingEntity);
             return MapperUtil.map(existingEntity, usuarioDto.getClass());
         }
@@ -52,6 +55,14 @@ public class UsuarioServiceImpl implements UsuarioService {
         throw new IllegalArgumentException();
     }
 
+    @Override
+    public UsuarioDto getUserById(Integer id){
+        Usuario usuario = usuarioRepository.getReferenceById(id);
+        UsuarioDto dto = MapperUtil.map(usuario, UsuarioDto.class);
+        dto.setCarrera(usuario.getAlumno().getCarrera());
+        dto.setFechaNacimiento(usuario.getAlumno().getFechaNacimiento());
+        return dto;
+    }
     @Override
     public ResultPageWrapper<UsuarioDto> getAll(Pageable paging){
         Page<Usuario> areaPage = usuarioRepository.findAll(paging);

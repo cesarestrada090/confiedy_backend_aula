@@ -4,6 +4,7 @@ import com.confiedy.app.entities.Usuario;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -19,7 +20,9 @@ public class UsuarioDto implements Serializable {
     private String nombreAlumno;
     @Size(max = 145)
     private String apellidoAlumno;
-
+    @Size(max = 145)
+    private String carrera;
+    private LocalDate fechaNacimiento;
     private Integer alumnoId;
     public UsuarioDto() {
     }
@@ -99,5 +102,21 @@ public class UsuarioDto implements Serializable {
 
     public void setAlumnoId(Integer alumnoId) {
         this.alumnoId = alumnoId;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }

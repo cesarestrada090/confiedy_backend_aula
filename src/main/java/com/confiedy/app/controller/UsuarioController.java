@@ -36,6 +36,18 @@ public class UsuarioController {
         }
         return new ResponseEntity<>(usuarioDto, HttpStatus.OK);
     }
+
+    @RequestMapping(value="usuario/{id}", method = RequestMethod.GET, consumes = {"*/*"}, produces = "application/json")
+    public ResponseEntity<UsuarioDto> getUsuarioById(@PathVariable(value = "id") Integer id){
+        UsuarioDto usuarioDto = null;
+        try {
+            log.info("Request by id: " + id);
+            usuarioDto = usuarioService.getUserById(id);
+        } catch (Exception e){
+            return new ResponseEntity<>(usuarioDto, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(usuarioDto, HttpStatus.OK);
+    }
     @RequestMapping(value="usuario", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = "application/json")
     public ResponseEntity<UsuarioDto> save(@Valid @RequestBody UsuarioDto usuarioDto){
         try {
