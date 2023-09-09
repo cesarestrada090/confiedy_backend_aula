@@ -21,6 +21,8 @@ public class CursoDto implements Serializable {
     private String nombreDocente;
     @Size(max = 145)
     private String apellidosDocente;
+    @Size(max = 145)
+    private String universidad;
     private Integer alumnoId;
     public CursoDto() {
     }
@@ -79,5 +81,13 @@ public class CursoDto implements Serializable {
 
     public void setAlumnoId(Integer alumnoId) {
         this.alumnoId = alumnoId;
+    }
+
+    public String getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
     }
 }

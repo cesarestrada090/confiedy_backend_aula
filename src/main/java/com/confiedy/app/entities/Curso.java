@@ -23,6 +23,10 @@ public class Curso {
     @Column(name = "ciclo", length = 45)
     private String ciclo;
 
+    @Size(max = 145)
+    @Column(name = "universidad", length = 145)
+    private String universidad;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name =  "docente_id")
     private Docente docente;
@@ -65,5 +69,13 @@ public class Curso {
 
     public void setDocente(Docente docente) {
         this.docente = docente;
+    }
+
+    public String getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
     }
 }

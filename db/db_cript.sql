@@ -22,3 +22,9 @@ insert into alumno (nombre,apellido,carrera, fecha_nacimiento) values ('Axel','M
 insert into usuario (username,password,tipo,alumno_id) values ('axel.mendoza@confiedy.com','123456','alumno',2);
 insert into confiedy.alumno_evaluacion_curso (alumno_id,evaluacion_curso_id,fecha_matricula)
 VALUES (2,1,CURDATE());
+
+
+insert into alumno (nombre,apellido,carrera, fecha_nacimiento) values ('Juan Carlos','Minaya','Ingeniería Industrial',CURDATE());
+insert into usuario (username,password,tipo,alumno_id) values ('juan.minaya@confiedy.com','1234','alumno',3);
+insert into confiedy.alumno_evaluacion_curso (alumno_id,evaluacion_curso_id,fecha_matricula)
+VALUES (3,1,CURDATE());
