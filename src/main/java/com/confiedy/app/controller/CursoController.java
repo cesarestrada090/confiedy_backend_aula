@@ -1,5 +1,6 @@
 package com.confiedy.app.controller;
 import com.confiedy.app.dto.CursoDto;
+import com.confiedy.app.dto.EvaluacionCursoDto;
 import com.confiedy.app.service.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,5 +30,18 @@ public class CursoController {
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(cursoDtos, HttpStatus.OK);
+    }
+
+    @GetMapping(value="evaluacionCurso/{cursoId}/{alumnoId}")
+    public ResponseEntity<List<EvaluacionCursoDto>> getAllBy(
+            @PathVariable(value = "cursoId") int cursoId, @PathVariable(value = "alumnoId") int alumnoId){
+        List<EvaluacionCursoDto> evaluacionCursoDtos;
+        try {
+            evaluacionCursoDtos = cursoService.getEvaluacionesByCursoId(cursoId,alumnoId);
+        } catch (Exception e){
+            log.info("Excepcion en: "+e.getMessage());
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(evaluacionCursoDtos, HttpStatus.OK);
     }
 }
