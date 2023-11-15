@@ -28,3 +28,10 @@ insert into alumno (nombre,apellido,carrera, fecha_nacimiento) values ('Juan Car
 insert into usuario (username,password,tipo,alumno_id) values ('juan.minaya@confiedy.com','1234','alumno',3);
 insert into confiedy.alumno_evaluacion_curso (alumno_id,evaluacion_curso_id,fecha_matricula)
 VALUES (3,1,CURDATE());
+
+insert into alumno (nombre,apellido,carrera, fecha_nacimiento) values ('Luis Marcelo',' Rivera Campos','Ninguna',CURDATE());
+insert into usuario (username,password,tipo,alumno_id) values ('luisrivera@confiedy.com','123321','alumno',101);
+insert into curso (codigo_curso,nombre_curso,ciclo,docente_id) values('1EST10','Introducción a la Estadística y Probabilidad','1',10);
+INSERT INTO confiedy.evaluacion_curso(curso_id, numero_unidad, horario, link_material, link_clase) VALUES(21, 'PC4', 'Miercoles 4:00-6:00 pm y Jueves 5:30-7:30 ', 'https://drive.google.com/drive/u/2/folders/1YeOtQzXCe8xj4wRabAQ30SSb0GPSGCc0', 'https://meet.jit.si/ClasesIntroEstad%C3%ADsticaPC4PUCP');
+insert into confiedy.alumno_evaluacion_curso (alumno_id,evaluacion_curso_id,fecha_matricula)
+VALUES (101,7,CURDATE());
