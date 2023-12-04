@@ -39,4 +39,11 @@ public class CursoServiceImpl implements CursoService {
         List<EvaluacionCurso> evaluacionCurso = evaluacionCursoRepository.findEvaluacionCursoByCursoId(cursoId,alumnoId);
         return evaluacionCurso.stream().map(x ->mapper.map(x,EvaluacionCursoDto.class)).collect(Collectors.toList());
     }
+
+    @Override
+    public List<CursoDto> getCursos() {
+        List<Curso> cursos = cursoRepository.findAll();
+        return cursos.stream().map(x ->mapper.map(x,CursoDto.class)).collect(Collectors.toList());
+    }
+
 }

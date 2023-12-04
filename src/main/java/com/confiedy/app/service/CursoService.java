@@ -13,4 +13,6 @@ public interface CursoService {
     List<CursoDto> getCursosByAlumno(Integer alumnoId);
 
     List<EvaluacionCursoDto> getEvaluacionesByCursoId(Integer cursoId,Integer alumnoId);
+
+    List<CursoDto> getCursos();
 }
