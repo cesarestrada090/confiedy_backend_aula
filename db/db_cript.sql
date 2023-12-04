@@ -38,8 +38,8 @@ VALUES (101,7,CURDATE());
 
 
 insert into alumno (id,nombre,apellido,carrera, fecha_nacimiento) values (102,'Dara',' Choque Paucar','GESTIÓN Y ALTA DIRECCIÓN',CURDATE());
-insert into usuario (id,username,password,tipo,alumno_id) values ('daraivanac2014@gmail.com','123321','alumno',102);
+insert into usuario (id,username,password,tipo,alumno_id) values (42,'daraivanac2014@gmail.com','123321','alumno',102);
 insert into curso (id,codigo_curso,nombre_curso,ciclo,docente_id) values(22,'MAT125','MATEMÁTICA 2','1',10);
-INSERT INTO confiedy.evaluacion_curso(curso_id, numero_unidad, horario, link_material, link_clase) VALUES(22, 'PC4', 'Miercoles 4:00-6:00 pm y Jueves 5:30-7:30 ', 'https://drive.google.com/drive/u/2/folders/1YeOtQzXCe8xj4wRabAQ30SSb0GPSGCc0', 'https://meet.jit.si/ClasesIntroEstad%C3%ADsticaPC4PUCP');
+INSERT INTO confiedy.evaluacion_curso(id,curso_id, numero_unidad, horario, link_material, link_clase) VALUES(8,22, 'PC4', 'Miercoles 4:00-6:00 pm y Jueves 5:30-7:30 ', 'https://drive.google.com/drive/u/2/folders/1YeOtQzXCe8xj4wRabAQ30SSb0GPSGCc0', 'https://meet.jit.si/ClasesIntroEstad%C3%ADsticaPC4PUCP');
 insert into confiedy.alumno_evaluacion_curso (alumno_id,evaluacion_curso_id,fecha_matricula)
-VALUES (102,21,CURDATE());
+VALUES (102,8,CURDATE());
