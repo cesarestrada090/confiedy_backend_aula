@@ -82,4 +82,10 @@ insert into tarea (descripcion,tipo,estado) values ('Argumentación','Tarea',1);
 insert into tarea (descripcion,tipo,estado) values ('Taller de escritura e interpretación de Textos','Tarea',1);
 insert into tarea (descripcion,tipo,estado) values ('Investigación académica','Tarea',1);
 
+insert into docente_tarea values (1,1);
+insert into docente_tarea values (1,2);
+insert into docente_tarea values (1,3);
+insert into docente_tarea values (1,4);
+insert into docente_tarea values (1,5);
+
 
