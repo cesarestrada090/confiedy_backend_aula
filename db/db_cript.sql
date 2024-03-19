@@ -50,8 +50,36 @@ insert into alumno (id,nombre,apellido,carrera, fecha_nacimiento) values (103,'J
 insert into usuario (id,username,password,tipo,alumno_id) values (43,'jackeline.llacza21@gmail.com','123321','alumno',103);
 INSERT INTO confiedy.evaluacion_curso(curso_id, numero_unidad, horario, link_material, link_clase) 
   VALUES(23, 'PC2', 'Domingo 11 febrero 9am-12pm y Domingo 11 febrero 3-6pm ', 'https://drive.google.com/drive/u/0/folders/1kJ5MfH_4Iz47Jx9g0OrOZS7p3vMEx8C6', 'https://meet.jit.si/ClasePC2MatefinancieraPUCP');
-
 insert into confiedy.alumno_evaluacion_curso (alumno_id,evaluacion_curso_id,fecha_matricula)
 VALUES (103,9,CURDATE());
+
+
+-- docente como alumno
+insert into alumno (id,nombre,apellido,carrera, fecha_nacimiento) values (104,'Gino',' Bonilla','',CURDATE());
+insert into usuario (id,username,password,tipo,alumno_id) values (44,'gbonillac@pucp.pe','123321','docente',104);
+insert into confiedy.alumno_evaluacion_curso (alumno_id,evaluacion_curso_id,fecha_matricula)
+VALUES (104,9,CURDATE());
+
+CREATE TABLE tarea (
+    id INT NOT NULL AUTO_INCREMENT,
+    descripcion VARCHAR(255) NOT NULL,
+    tipo VARCHAR(255) NOT NULL, -- Planificación, Enseñanza, Evaluación, etc.
+    estado TINYINT NOT NULL DEFAULT 1, -- 1: Pendiente, 2: En curso, 3: Finalizada
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE docente_tarea (
+    id_docente INT NOT NULL,
+    id_tarea INT NOT NULL,
+    PRIMARY KEY (id_docente, id_tarea),
+    FOREIGN KEY (id_docente) REFERENCES docente(id),
+    FOREIGN KEY (id_tarea) REFERENCES tarea(id)
+);
+
+insert into tarea (descripcion,tipo,estado) values ('Lenguaje y sociedad','Tarea',1);
+insert into tarea (descripcion,tipo,estado) values ('Ética','Tarea',1);
+insert into tarea (descripcion,tipo,estado) values ('Argumentación','Tarea',1);
+insert into tarea (descripcion,tipo,estado) values ('Taller de escritura e interpretación de Textos','Tarea',1);
+insert into tarea (descripcion,tipo,estado) values ('Investigación académica','Tarea',1);
 
 
